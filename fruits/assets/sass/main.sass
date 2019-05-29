@@ -1,0 +1,752 @@
+@import "libs"
+@import "base"
+
+.mobile
+	display: none !important
+
+
+.header
+	background-color: #F1F1F4
+	padding: 40px 0 70px
+	transition: all .6s
+
+	&__dasket
+		display: none
+
+	&__container
+		position: relative
+
+	&__top
+		display: flex
+		align-items: center
+
+		&_btn,
+		&_cart-img
+			display: none
+
+	&__logo
+		a
+			font-weight: 700
+			font-size: 36px
+			color: $text
+
+		span
+			color: #FF4763
+
+	&__phone
+		display: flex
+		align-items: center
+		margin-left: 70px
+		margin-right: auto
+		position: relative
+		z-index: 1001	
+
+		img
+			position: relative
+			vertical-align: inherit
+			z-index: 3
+			margin-right: 10px
+
+		a
+			color: $text
+			font-size: 24px
+			line-height: 1
+			font-weight: 700
+			vertical-align: bottom
+			position: relative
+			z-index: 3
+
+			&:hover ~ .header__phone_info
+				visibility: visible
+				opacity: 1
+				z-index: 2
+
+		&_info
+			position: absolute
+			top: -48px
+			left: -30px
+			background: #fff
+			padding: 20px 30px
+			box-shadow: 0 0 10px #ccc
+			visibility: hidden
+			opacity: 0
+			transition: .3s
+
+			p
+				white-space: nowrap
+				&:nth-child(1)
+					margin-bottom: 40px
+
+				span
+					color: $accent
+
+	&__links
+		li
+			display: inline-block
+			margin-left: 40px
+
+			&:first-child
+				margin-left: 0
+
+		a 
+			color: $text
+			position: relative
+
+			@extend .underline
+
+
+.nav
+	position: fixed
+	top: 120px
+	right: 0
+	left: 0
+	z-index: 999
+	transition: all .6s
+
+	&--active
+		top: 0
+
+	&__container
+		position: relative
+		display: flex
+		justify-content: space-between
+		align-items: center
+		background: #fff
+		padding: 17px 30px
+		border-radius: 5px
+		box-shadow: 0 0 10px #ccc
+		
+
+	ul
+		display: flex
+		justify-content: space-between
+
+	li
+		margin-right: 40px
+		&:last-child
+			margin-right: 0
+
+	a
+		position: relative
+		z-index: 1
+		color: $text
+		margin-left: 5px
+		line-height: 1
+		font-weight: 700
+
+		span
+			position: relative
+			display: inline-block
+
+			&::before
+				content: ''
+				width: 0
+				transform: scale(0)
+				transition: all .3s
+				position: absolute
+				bottom: 0
+				width: 100%
+				height: 1px
+				background-color: $accent
+				// z-index: -1
+
+			&:hover,
+			&:focus
+				color: $accent
+				text-decoration: none
+				&::before
+					transform: scale(1)
+
+.hero
+	position: relative
+
+	&__btn
+		padding: 0 50px
+
+	&__item
+		padding: 135px 0
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+
+	&__slider_arrows
+		position: absolute
+		right: 0
+		left: 0
+		height: 1px
+		top: 50%
+		transform: translate(0, -50%)
+
+	.slick-prev,
+	.slick-next
+		width: 40px
+		height: 40px
+		border: none
+		border-radius: 50%
+		background-color: #fff
+		font-size: 0
+		position: absolute
+		top: 50%
+		transform: translate(0, -50%)
+		cursor: pointer
+		transition: .3s
+
+		&:before
+			content: ''
+			font-size: 28px
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+
+		&:hover
+			background-color: #ddd
+
+	.slick-arrow
+		&::before
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			width: 10px
+			height: 10px
+			border-top: 2px solid #424657
+			border-left: 2px solid #424657
+		
+	.slick-prev
+		left: -70px
+
+		&:before
+			transform: translate(-30%, -50%) rotate(-45deg)
+			
+
+	.slick-next
+		right: -70px
+
+		&:before
+			transform: translate(-70%, -50%) rotate(135deg)
+			
+
+	&__info
+		position: relative
+		display: flex
+		color: #fff
+		margin-bottom: 60px
+
+		&_text
+			width: auto
+			margin-right: 30px
+
+			h1
+				line-height: 1
+				text-transform: uppercase
+
+			p 
+				font-size: 36px
+
+		&_action
+			float: left
+			font-size: 130px
+			font-weight: 700
+			line-height: .8
+
+
+.addition
+	padding: 70px 0 0
+	background-color: #F1F1F4
+
+	h3
+		margin-bottom: 30px
+
+	&__list
+		margin-bottom: 70px
+		padding-bottom: 10px
+		padding-top: 10px
+
+	&__item
+		position: relative
+		background-color: #fff
+		padding: 15px 20px 40px
+		border-radius: 5px
+		transition: .5s
+		line-height: 1.1
+		
+		&:hover
+			box-shadow: 3px 3px 15px #ccc
+
+		a
+			h2
+				color: $text
+		
+		img
+			display: block
+			// max-width: 185px
+			width: 100%
+			height: auto
+			margin: 0 auto 25px
+
+		.added_to_cart
+			position: absolute
+			bottom: 5px
+			left: 50%
+			transform: translate(-50%, 0)
+			font-size: 16px
+			color: $text
+
+			&:hover,
+			&:focus
+				text-decoration: underline !important
+		
+		h2
+			margin-bottom: 20px
+			line-height: 1.1
+
+	&__order
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-wrap: wrap
+		font-size: 22px
+		font-weight: 700
+
+		// a:first-child
+		// 	display: none
+
+	.btn
+		margin-bottom: 5px
+
+		&:hover
+			color: $btn
+
+	span
+		font-size: 24px
+
+
+
+.gallery
+	padding: 70px 0 30px
+
+	&__top
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin-bottom: 30px
+
+		&_pages
+			font-size: 18px
+			margin-left: auto
+			margin-right: 60px
+			font-weight: 700
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+		span
+			margin: 0 7px
+
+	&__slider
+		margin-bottom: 50px
+
+		&_item
+			background: #424657
+			color: #fff
+			border-radius: 5px
+			overflow: hidden
+
+			img
+				display: block
+				margin: auto
+				width: 100%
+				height: auto
+
+		&_info
+			padding: 20px 20px 30px
+
+
+		h4
+			line-height: 1.2
+			margin-bottom: 20px
+
+		p 
+			margin-bottom: 20px
+
+		&_order
+			display: flex
+			justify-content: space-between
+			align-items: center
+
+			a:first-child
+				display: block
+
+			.added_to_cart
+				position: absolute
+				bottom: 5px
+				left: 50%
+				transform: translate(-50%, 0)
+				font-size: 16px
+				color: #fff
+
+				&:hover,
+				&:focus
+					text-decoration: underline !important
+
+		span
+			font-size: 24px
+
+
+
+.delivery
+	background: #424657
+
+	&__container
+		position: relative
+		display: flex
+		justify-content: flex-end
+		padding: 90px 0
+		z-index: 1
+
+	&__image
+		position: absolute
+		top: 0
+		bottom: 0
+		height: 100%
+		left: -80px
+		z-index: -1
+
+		img
+			height: 100%
+
+	&__info
+		width: 40%
+		margin-right: 0
+		color: #fff
+
+	h3
+		margin-bottom: 40px
+
+	p 
+		margin-bottom: 20px
+		opacity: .8
+
+		&:last-child
+			margin-bottom: 0
+ 
+
+.contacts
+	position: relative
+	padding: 80px 0 65px
+
+
+	&__place,
+	&__phone
+		position: relative
+		padding-left: 40px
+		margin-bottom: 20px
+
+		img
+			position: absolute
+			left: 0
+
+		a 
+			color: $text
+			font-weight: 700
+			position: relative
+
+			@extend .underline
+			&::before
+				bottom: 2px
+
+	&__phone
+		b
+			color: $accent
+
+	&__soc
+		span
+			display: block
+			margin-bottom: 10px
+		img
+			width: 30px
+			margin-right: 15px
+			position: relative
+			top: 0
+			transition: .3s
+
+			&:hover
+				top: 3px
+
+	h3
+		margin-bottom: 40px
+
+
+.map
+	height: 100%
+	position: absolute
+	left: 50%
+	top: 0
+	right: 0
+
+
+.footer
+	padding: 40px 0
+	background: #424657
+	color: #fff
+
+	&__container
+		display: flex
+		justify-content: space-between
+
+	&__col:nth-child(1)
+		a
+			font-weight: 700
+			font-size: 30px
+			color: #fff
+			display: inline-block
+			margin-bottom: 30px
+
+		span
+			color: $btn
+
+		p
+			a
+				font-size: 14px
+				font-weight: 400
+				position: relative
+
+				@extend .underline
+
+	&__col:nth-child(2)
+		a
+			color: #fff
+			position: relative
+
+			@extend .underline
+
+		li 
+			margin-bottom: 10px
+
+	&__place,
+	&__phone
+		position: relative
+		padding-left: 40px
+		margin-bottom: 20px
+
+		img
+			position: absolute
+			left: 0
+
+		a 
+			color: #fff
+			font-size: 18px
+			font-weight: 700
+			position: relative
+
+			@extend .underline
+			&::before
+				bottom: 2px
+
+	&__phone
+		span
+			color: $accent
+
+	&__soc
+		span
+			display: block
+			margin-bottom: 10px
+		img
+			width: 30px
+			margin-left: 15px
+			position: relative
+			top: 0
+			transition: .3s
+
+			&:hover
+				top: 3px
+
+
+
+.underline
+	&::before
+		content: ''
+		width: 0
+		transform: scale(0)
+		transition: all .3s
+		position: absolute
+		bottom: 3px
+		width: 100%
+		height: 1px
+		background-color: $accent
+		// z-index: -1
+
+	&:hover,
+	&:focus
+		color: $accent
+		text-decoration: none
+		&::before
+			transform: scale(1)
+
+
+
+.goods-block
+	position: relative
+	background: $text
+	display: flex
+	color: #fff
+	border-radius: 10px
+	overflow: hidden
+
+	&__image
+		width: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+		border-radius: 10px
+
+		img
+			width: 100%
+			height: 100%
+			border-radius: 10px
+
+	&__info
+		width: 50%
+		padding: 55px 70px
+
+		h1
+			font-size: 36px
+			line-height: 1
+			margin-bottom: 20px
+
+		p:nth-last-of-type(1)
+			margin-bottom: 30px
+
+		// span
+		// 	color: $accent
+		// 	display: block
+		// 	margin-bottom: 20px
+
+	&__order
+		display: flex
+		align-items: center
+
+	.price
+		display: flex
+		align-items: flex-end
+		color: #fff
+		margin-bottom: 0
+		margin-left: 30px
+		font-size: 24px
+		line-height: 1
+		font-weight: 700
+
+		del
+			margin-right: 5px
+			font-size: 18px
+			color: $btn
+
+		ins
+			color: $accent
+
+	&--inverse
+		background: #FCFCFD
+		color: $text
+
+
+		.goods-block__image
+			background: #fff
+			padding: 40px 60px
+			border: 1px solid #F1F1F4
+			border-radius: 5px
+			
+		.goods-block__info
+			padding: 5px 40px
+
+		.goods-block__order
+			span
+				color: $text
+
+
+//---------------------------woocommerce-style----------------------------------
+
+.woocommerce-breadcrumb
+	margin-bottom: 30px
+
+	li
+		display: inline-block
+		margin-right: 25px
+		position: relative
+
+
+		&::after
+			content: '.'
+			font-size: 30px
+			line-height: 1
+			position: absolute
+			top: -10px
+			right: -15px
+
+		&:nth-child(even)
+			display: none
+
+		&:last-child
+			color: $btn
+			display: inline-block
+			&::after
+				display: none
+
+	a
+		color: $text
+
+		@extend .underline
+
+
+
+
+.woocommerce-product-gallery__trigger
+	display: none
+
+
+figure
+	margin: 0
+
+.woocommerce-product-gallery
+	width: 100%
+	height: 100%
+
+
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.woocommerce-noreviews,
+p.no-comments
+	padding: 10px
+	border-radius: 5px
+	color: #fff
+	margin-bottom: 5px
+
+	a
+		color: #fff
+
+		&:hover,
+		&:focus
+			text-decoration: underline
+
+//------распродажа----------
+.onsale
+	position: absolute
+	right: 20px
+	top: 10px
+	font-size: 20px
+	font-weight: 600
+
+.addition__order--hidden
+	a
+		&:first-child
+			display: none
+
+.rolls__item_info
+	a
+		color: #fff
+
+@import "page"
+@import "media" // Always at the end

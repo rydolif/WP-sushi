@@ -1,0 +1,65 @@
+.btn
+	position: relative
+	display: inline-block
+	height: 45px
+	border: 1px solid transparent
+	outline: none
+	padding: 0 30px
+	border-radius: 50px
+	background: $btn
+	text-align: center
+	font-size: 16px
+	color: #fff
+	line-height: 45px
+	letter-spacing: .2px
+	font-weight: 700
+	transition: all .6s
+
+	&:hover,
+	&:focus
+		outline: none
+		border: 1px solid $btn
+		text-decoration: none
+		cursor: pointer
+		background: transparent
+		box-shadow: 0 5px 10px rgba($text, .4)
+		color: #fff
+
+	&--cart
+		padding-left: 60px
+		padding-right: 40px
+		border: 1px solid $accent
+		background: $accent url(../img/cart.png) no-repeat 25px center
+
+		&:hover,
+		&:focus
+			background: $btn url(../img/cart.png) no-repeat 25px center
+			border: 1px solid $btn
+			// background: $accent
+			color: #fff
+
+	&--transparent
+		background: transparent
+		border: 1px solid $accent
+		color: $accent
+
+		&:hover,
+		&:focus
+			background: $accent
+			border: 1px solid $accent
+			color: #fff
+
+	&--gray
+		background-color: transparent
+		color: $text
+		border-color: #E2E2E9
+		&:hover,
+		&:focus
+			color: $accent
+			border-color: $accent
+			box-shadow: 0 3px 5px rgba($text, .4)
+
+	&--inverse
+		&:hover,
+		&:focus
+			color: $btn
