@@ -25,7 +25,7 @@
 
 					<div class="footer__phone">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/phone.png" alt="alt">
-						<a href="tel:+74872574147">+7(4872)57-41-47</a>
+						<a href="tel:<?php the_field('phone', 'option'); ?>"><?php the_field('phone', 'option'); ?></a>
 						<p>Прием звонков: с <span>11:00 </span>до <span>22:30</span></p>
 					</div>
 
@@ -39,8 +39,8 @@
 				<div class="footer__col">
 					<div class="footer__soc">
 						<span>Мы в соцсетях:</span>
-						<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/vk-footer.png" alt="alt"></a>
-						<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/ins-footer.png" alt="alt"></a>
+						<a href="<?php the_field('vk', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/vk-footer.png" alt="alt"></a>
+						<a href="<?php the_field('in', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/ins-footer.png" alt="alt"></a>
 					</div>
 				</div>
 

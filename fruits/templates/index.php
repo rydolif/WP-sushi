@@ -11,55 +11,37 @@ get_header();
 		<section class="hero" id="app">
 
 			<div class="hero__slider">
-				
-				<div class="hero__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/bg-hero.jpg)">
-					<div class="container">
-						
-						<div class="hero__info">
-							<div class="hero__info_text">
-								<h1>Скидка</h1>
-								<p>на первый заказ</p>
+				<?php if( have_rows('bunner') ): ?>
+
+					<?php while( have_rows('bunner') ): the_row(); 
+
+						$title = get_sub_field('title');
+						$text = get_sub_field('text');
+						$link = get_sub_field('link');
+						$action = get_sub_field('action');
+						$img = get_sub_field('img');
+
+						?>
+
+							<div class="hero__item" style="background-image: url(<?php echo $img; ?>)">
+								<div class="container">
+									
+									<div class="hero__info">
+										<div class="hero__info_text">
+											<h1><?php echo $title; ?></h1>
+											<p><?php echo $text; ?></p>
+										</div>
+										<p class="hero__info_action"><?php echo $action; ?></p>
+									</div>
+
+									<a href="<?php echo $link; ?>" class="btn hero__btn order_open">Сделать заказ</a>
+
+								</div>
 							</div>
-							<p class="hero__info_action">30%</p>
-						</div>
 
-						<button class="btn hero__btn order_open">Сделать заказ</button>
+					<?php endwhile; ?>
 
-					</div>
-				</div>
-				
-				<div class="hero__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/bg-hero.jpg)">
-					<div class="container">
-						
-						<div class="hero__info">
-							<div class="hero__info_text">
-								<h1>Скидка</h1>
-								<p>на первый заказ</p>
-							</div>
-							<p class="hero__info_action">30%</p>
-						</div>
-
-						<button class="btn hero__btn order_open">Сделать заказ</button>
-
-					</div>
-				</div>
-
-				<div class="hero__item" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/bg-hero.jpg)">
-					<div class="container">
-						
-						<div class="hero__info">
-							<div class="hero__info_text">
-								<h1>Скидка</h1>
-								<p>на первый заказ</p>
-							</div>
-							<p class="hero__info_action">30%</p>
-						</div>
-
-						<button class="btn hero__btn order_open">Сделать заказ</button>
-
-					</div>
-				</div>
-
+				<?php endif; ?>
 			</div>
 
 			<div class="hero__slider_arrows container"></div>
@@ -76,7 +58,7 @@ get_header();
 						<div class="swiper-pagination swiper-pagination1"></div>
 						<div class="swiper-button-next swiper-button-next1"></div>
 					</div>
-					<a href="#" class="btn btn--transparent">Показать все</a>
+					<a href="<?php echo get_home_url(); ?>/product-category/roly/" class="btn btn--transparent">Показать все</a>
 				</div>
 
  				<div class="gallery__slider gallery__slider1 swiper-container">
@@ -147,7 +129,7 @@ get_header();
 						<div class="swiper-pagination swiper-pagination2"></div>
 						<div class="swiper-button-next swiper-button-next2"></div>
 					</div>
-					<a href="#" class="btn btn--transparent">Показать все</a>
+					<a href="<?php echo get_home_url(); ?>/product-category/sushi/" class="btn btn--transparent">Показать все</a>
 				</div>
 
 				<div class="gallery__slider gallery__slider2 swiper-container">
@@ -218,7 +200,7 @@ get_header();
 						<div class="swiper-pagination swiper-pagination3"></div>
 						<div class="swiper-button-next swiper-button-next3"></div>
 					</div>
-					<a href="#" class="btn btn--transparent">Показать все</a>
+					<a href="<?php echo get_home_url(); ?>/product-category/sety/" class="btn btn--transparent">Показать все</a>
 				</div>
 
 				<div class="gallery__slider gallery__slider3 swiper-container">
@@ -289,7 +271,7 @@ get_header();
 						<div class="swiper-pagination swiper-pagination4"></div>
 						<div class="swiper-button-next swiper-button-next4"></div>
 					</div>
-					<a href="#" class="btn btn--transparent">Показать все</a>
+					<a href="<?php echo get_home_url(); ?>/product-category/wok/" class="btn btn--transparent">Показать все</a>
 				</div>
 
 				<div class="gallery__slider gallery__slider4 swiper-container">
@@ -516,14 +498,14 @@ get_header();
 
 				<div class="contacts__phone">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/phone.png" alt="alt">
-					<a href="tel:+74872574147">+7(4872)57-41-47</a>
+					<a href="tel:<?php the_field('phone', 'option'); ?>"><?php the_field('phone', 'option'); ?></a>
 					<p>Прием звонков: с <b>11:00 </b>до <b>22:30</b></p>
 				</div>
 
 				<div class="contacts__soc">
 					<span>Мы в соцсетях:</span>
-					<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts/vk.png" alt="alt"></a>
-					<a href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts/ins.png" alt="alt"></a>
+					<a href="<?php the_field('vk', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts/vk.png" alt="alt"></a>
+					<a href="<?php the_field('in', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts/ins.png" alt="alt"></a>
 				</div>
 			</div>
 		</section>

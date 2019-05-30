@@ -28,9 +28,9 @@
 
 					<div class="header__phone">
 						
-						<a href="tel:+74872574147">
+						<a href="tel:<?php the_field('phone', 'option'); ?>">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/phone.png" alt="ph">
-							<span>+7(4872)57-41-47</span>
+							<span><?php the_field('phone', 'option'); ?></span>
 						</a>
 
 						<div class="header__phone_info">
@@ -53,16 +53,16 @@
 
 						<p class="header__links_green mobile"><b>Оформить заказ:</b></p>
 
-						<a href="tel:+74872574147" class="header__links_call mobile">+7 (4872) 57-41-47</a>
+						<a href="tel:<?php the_field('phone', 'option'); ?>" class="header__links_call mobile"><?php the_field('phone', 'option'); ?></a>
 						<p class="mobile">Прием звонков с 11:00 до 22:30</p>
 						<p class="mobile">г. Тула, ул. Новомосковская, д. 25Б</p>
 
 						<div class="header__links_soc mobile">
 							<p><b>Мы в соцсетях:</b></p>
-							<a href="#">
+							<a href="<?php the_field('in', 'option'); ?>">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/ins-footer.png" alt="">
 							</a>
-							<a href="#">
+							<a href="<?php the_field('vk', 'option'); ?>">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/vk-footer.png" alt="">
 							</a>
 						</div>
@@ -93,15 +93,18 @@
 	<nav class="nav">
 		<div class="container nav__container">
 
- 			<?php 
-				wp_nav_menu( array(
-					'menu'=>'nav',
-					'menu_class'=>'list',
-				    'theme_location'=>'nav',
-				) );
-			?> 
+			<div class="nav__list">
+	 			<?php 
+					wp_nav_menu( array(
+						'menu'=>'nav',
+						'menu_class'=>'list',
+					    'theme_location'=>'nav',
+					) );
+				?>
+			</div>
 
-			<button class="btn btn--cart">Корзина</button>
+			<?php cart_link(); ?><?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+
 
 		</div>
 	</nav>

@@ -1,5 +1,14 @@
 $(function() {
 
+
+
+// Открытие корзины при наведении
+$('.cart-wrap').hover(function() {
+  $('.widget_shopping_cart').toggleClass('open');
+});
+
+
+
 //------------------------------гамбургер-----------------------------
   $('.hamburger').click(function() {
     $(this).toggleClass('hamburger--active');
