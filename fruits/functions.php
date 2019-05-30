@@ -170,10 +170,7 @@ require get_template_directory() . '/includes/post-type.php';
  * pagination
  */
 require get_template_directory() . '/includes/pagination.php';
-/**
- * ACF
- */
-require get_template_directory() . '/includes/acf.php';
+
 
 /**
  * Load Jetpack compatibility file.
@@ -189,6 +186,20 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/includes/woocommerce.php';
 }
 
+/**
+ * cart
+ */
+require get_template_directory() . '/includes/cart.php';
+
+/**
+ * wiget
+ */
+require get_template_directory() . '/includes/wiget.php';
+
+/**
+ * ACF
+ */
+require get_template_directory() . '/includes/acf.php';
 
 
 
@@ -204,58 +215,17 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/woocommerce/includes/wc-function-checkout.php';
 }
 
-//------------------виджеты----------------------
-  function wpb_widgets_init() {
-   
-   register_sidebar( array(
-   'name'          => 'Корзина',
-   'id'            => 'custom-header-widget',
-   'before_widget' => '<div class="chw-widget">',
-   'after_widget'  => '</div>',
-   'before_title'  => '<h2 class="chw-title">',
-   'after_title'   => '</h2>',
-   ) );
-   
-  }
-  add_action( 'widgets_init', 'wpb_widgets_init' );
 
-
-//------------------настройка- ACF---------------------
-    if( function_exists('acf_add_options_page') ) {
-     
-        $option_page = acf_add_options_page(array(
-            'page_title'    => 'Базовые поля',
-            'menu_title'    => 'Базовые поля',
-            'menu_slug'     => 'theme-general-settings',
-            'capability'    => 'edit_posts',
-            'redirect'  => false
-        ));
-     
-    }
-
-
-
-//Вывод кратких данных из корзины
-if ( ! function_exists( 'cart_link' ) ) {
- function cart_link() {
- ?>
-<a class="cart-contents btn btn--cart cart-wrap" href="/cart/" title="<?php _e( 'Перейти в корзину' ); ?>">
-	Корзина
-<!-- 	<?php echo sprintf (_n( '%d шт.', '%d шт.', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> | <?php echo WC()->cart->get_cart_total(); ?> -->
-	</a> 
- <?php
- }
-}
-
-//Ajax Обновление кратких данных из корзины
-add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
-
-function woocommerce_header_add_to_cart_fragment( $fragments ) {
- ob_start();
- ?>
- <a class="cart-contents btn btn--cart cart-wrap" href="/cart/" title="<?php _e( 'Перейти в корзину' ); ?>">
- 	<?php echo sprintf (_n( '%d шт.', '%d шт.', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> | <?php echo WC()->cart->get_cart_total(); ?></a> 
- <?php
- $fragments['a.cart-contents'] = ob_get_clean();
- return $fragments;
+/**
+ * Override loop template and show quantities next to add to cart buttons
+ */
+add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
+function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
+	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
+		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
+		$html .= woocommerce_quantity_input( array(), $product, false );
+		$html .= '<button type="submit" class="button alt btn">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+		$html .= '</form>';
+	}
+	return $html;
 }

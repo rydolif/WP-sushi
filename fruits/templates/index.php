@@ -91,6 +91,10 @@ get_header();
 
 											<div class="gallery__slider_order addition__order">
 
+											<?php if ( $price_html = $product->get_price_html() ) : ?>
+												<p class="price"><b><?php echo $price_html; ?></b></p>
+											<?php endif; ?>
+
 											<?php
 
 											/**
@@ -102,10 +106,6 @@ get_header();
 											do_action( 'woocommerce_after_shop_loop_item' );
 
 											?>
-
-											<?php if ( $price_html = $product->get_price_html() ) : ?>
-												<span class="price"><?php echo $price_html; ?></span>
-											<?php endif; ?>
 
 											</div>
 

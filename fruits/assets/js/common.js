@@ -2,11 +2,26 @@ $(function() {
 
 
 
-// Открытие корзины при наведении
-$('.cart-wrap').hover(function() {
-  $('.widget_shopping_cart').toggleClass('open');
+$('.cart-punkt').hover(function () {
+  $('.widget_shopping_cart').addClass('widget_shopping_cart-open'); 
+}, function () {
+  $('.cart-punkt').data('timer', setTimeout(function () {
+    $('.widget_shopping_cart').removeClass('widget_shopping_cart-open'); 
+  }, 200));
 });
 
+// Открытие корзины при наведении
+// $('.cart-wrap').hover(function() {
+//   $('.widget_shopping_cart').toggleClass('open');
+// });
+
+// $('.widget_shopping_cart').hover(function() {
+//   $('.widget_shopping_cart').toggleClass('widget_shopping_cart--open');
+// });
+
+// $('.remove_from_cart_button').click(function() {
+//   $('.widget_shopping_cart').hide();
+// });
 
 
 //------------------------------гамбургер-----------------------------
@@ -215,3 +230,6 @@ $('.cart-wrap').hover(function() {
   $(window).on('load', function(){
     $('.preloader').delay(1000).fadeOut('slow');
   });
+
+  
+jQuery(function($){$("div.quantity:not(.buttons-add-minus), td.quantity:not(.buttons-add-minus)").addClass("buttons-add-minus").append('<input type="button" value="+" class="plus" />').prepend('<input type="button" value="-" class="minus" />'),$(document).on("click",".plus, .minus",function(){var t=$(this).closest(".quantity").find(".qty"),a=parseFloat(t.val()),n=parseFloat(t.attr("max")),s=parseFloat(t.attr("min")),e=t.attr("step");a&&""!==a&&"NaN"!==a||(a=0),(""===n||"NaN"===n)&&(n=""),(""===s||"NaN"===s)&&(s=0),("any"===e||""===e||void 0===e||"NaN"===parseFloat(e))&&(e=1),$(this).is(".plus")?t.val(n&&(n==a||a>n)?n:a+parseFloat(e)):s&&(s==a||s>a)?t.val(s):a>0&&t.val(a-parseFloat(e)),t.trigger("change")})});

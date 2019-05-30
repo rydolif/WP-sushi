@@ -47,7 +47,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 							<a href="<?php echo esc_url( $product_permalink ); ?>" class="float--left">
 								<?php echo $thumbnail; ?>
 							</a>
-							<p><?php echo $product_name; ?></p>
+							<p><b><?php echo $product_name; ?></b></p>
 						<?php endif; ?>
 						<?php
 						echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
@@ -59,9 +59,16 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 							esc_attr( $_product->get_sku() )
 						), $cart_item_key );
 						?>
-						<p>
+						<p class="woocommerce-mini-cart-item__p">
 							<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
-							<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<b class="quantity">' . sprintf( '%s  %s', $cart_item['quantity'], $product_price ) . '</b>', $cart_item, $cart_item_key ); ?>
+							 <span>
+							 	<span>Цена:</span> <b><?php echo $product_price ?></b>
+							 </span>
+							 <span>
+							 	<span>Количество:</span><b><?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<b class="quantity">' . sprintf( '%s  %s', $cart_item['quantity'], ' ' ) . '</b>', $cart_item, $cart_item_key ); ?>
+							 </span>
+
+							</b>
 						</p>
 					</li>
 					<?php
@@ -72,7 +79,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		?>
 	</ul>
 
-	<p class="woocommerce-mini-cart__total total"><span>Сумма заказа</span> <?php echo WC()->cart->get_cart_subtotal(); ?></p>
+	<p class="woocommerce-mini-cart__total total"><span>Сумма заказа</span> <b><?php echo WC()->cart->get_cart_subtotal(); ?></b></p>
 
 	<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
@@ -80,7 +87,11 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
 <?php else : ?>
 
-	<p class="woocommerce-mini-cart__empty-message"><?php _e( 'Корзина', 'woocommerce' ); ?></p>
+	<style>
+		.widget_shopping_cart_content {
+			display: none;
+		}
+	</style>
 
 <?php endif; ?>
 
