@@ -67,7 +67,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	<?php  echo '<p>' . the_excerpt() . '</p>'; ?>
 
-	<div class="addition__order addition__order--hidden">
+	<div class="gallery__slider_order addition__order addition__order--hidden">
+
+
+	<?php if ( $price_html = $product->get_price_html() ) : ?>
+		<span class="price"><?php echo $price_html; ?></span>
+	<?php endif; ?>
 
 	<?php
 
@@ -81,11 +86,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 	?>
 
-
-	<?php if ( $price_html = $product->get_price_html() ) : ?>
-		<span class="price"><?php echo $price_html; ?></span>
-	<?php endif; ?>
-
 	</div>
 	
 	<?php 
@@ -96,3 +96,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 
 </div>
+

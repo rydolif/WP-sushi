@@ -287,29 +287,18 @@
 			height: auto
 			margin: 0 auto 25px
 
-		.added_to_cart
-			position: absolute
-			bottom: 5px
-			left: 50%
-			transform: translate(-50%, 0)
-			font-size: 16px
-			color: $text
-
-			&:hover,
-			&:focus
-				text-decoration: underline !important
 		
 		h2
 			margin-bottom: 20px
 			line-height: 1.1
 
-	&__order
-		display: flex
-		align-items: center
-		justify-content: space-between
-		flex-wrap: wrap
-		font-size: 22px
-		font-weight: 700
+	// &__order
+	// 	display: flex
+	// 	align-items: center
+	// 	justify-content: space-between
+	// 	flex-wrap: wrap
+	// 	font-size: 22px
+	// 	font-weight: 700
 
 		// a:first-child
 		// 	display: none
@@ -357,7 +346,7 @@
 
 			img
 				display: block
-				margin: auto
+				margin: 0 auto
 				width: 100%
 				height: auto
 
@@ -370,27 +359,16 @@
 			margin-bottom: 20px
 
 		p 
-			margin-bottom: 20px
+			margin-bottom: 15px
 
-		&_order
-			display: flex
-			justify-content: space-between
-			align-items: center
+		// &_order
+		// 	display: flex
+		// 	justify-content: space-between
+		// 	align-items: center
 
-			a:first-child
-				display: block
+		// 	a:first-child
+		// 		display: block
 
-			.added_to_cart
-				position: absolute
-				bottom: 5px
-				left: 50%
-				transform: translate(-50%, 0)
-				font-size: 16px
-				color: #fff
-
-				&:hover,
-				&:focus
-					text-decoration: underline !important
 
 		span
 			font-size: 24px
@@ -666,6 +644,124 @@
 				color: $text
 
 
+.swiper-slide
+	height: auto !important
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+
+
+.mussels
+	padding: 60px 0
+	background: #FCFCFD
+
+.page-mussels
+	.addition
+		h3
+			span
+				font-size: inherit
+				color: $btn
+		
+			
+.fanta
+	padding: 60px 0
+	background: #FCFCFD
+
+.page-fanta
+	.addition
+		h3
+			span
+				font-size: inherit
+				color: $btn
+
+.rolls
+	padding: 60px 0
+
+	h3
+		margin-bottom: 20px
+
+	&__sort,
+	&__buttons
+		display: flex
+		align-items: center
+		flex-wrap: wrap
+
+	&__sort
+		margin-bottom: 20px
+
+		button
+			margin-right: 10px
+			margin-bottom: 10px
+
+	&__selection
+		margin-left: auto
+		position: relative
+
+		label
+			position: absolute
+			top: -25px
+			
+		select
+			min-width: 200px
+			height: 40px
+			border-color: #E2E2E9
+			border-radius: 3px
+			outline: none
+
+			&:hover
+				border-color: $accent
+
+	&__list
+		display: flex
+		justify-content: flex-start
+		flex-wrap: wrap
+
+	&__item
+		background: #424657
+		width: 23.5%
+		color: #fff
+		border-radius: 5px
+		overflow: hidden
+		margin-bottom: 30px
+		transition: .3s
+		margin-right: 1.5%
+		
+		&:hover
+			box-shadow: 3px 3px 15px #999
+
+		&_info
+			padding: 20px 20px 30px
+
+		img
+			display: block
+			margin: auto
+			width: 100%
+			height: auto
+
+		h2
+			line-height: 1.2
+			margin-bottom: 20px
+			color: #fff
+
+		p 
+			margin-bottom: 20px
+
+		&_order
+			display: flex
+			justify-content: space-between
+			align-items: center
+
+		span
+			font-size: 24px
+
+.page-rolls
+	.addition
+		h3
+			span
+				font-size: inherit
+				color: $btn
+
+
 //---------------------------woocommerce-style----------------------------------
 
 .woocommerce-breadcrumb
@@ -752,61 +848,148 @@ p.no-comments
 
 
 
-.cart-wrap
-	a
-		color: #fff !important
+// .cart-wrap
+// 	a
+// 		color: #fff !important
 
-		&:hover,
-		&:focus
-			span
-				color: #fff
+// 		&:hover,
+// 		&:focus
+// 			span
+// 				color: #fff
 
-		span
-			color: #fff
+// 		span
+// 			color: #fff
 
-			&::before
-				display: none
+// 			&::before
+// 				display: none
 
-
-.open
-	display: block
+.cart-punkt
+	position: relative
 
 .widget_shopping_cart
-	// display: none
+	display: none
+	opacity: 0
 	position: absolute
-	top: 60px
+	top: 30px
+	right: 0
+	padding-top: 15px
+	transition: all .6s
+
+.widget_shopping_cart-open
+	opacity: 1
+	top: 45px
+	display: block
+
+
+.widget_shopping_cart_content
+	border-bottom: 1px solid #E2E2E9
+	margin-bottom: 15px
 	background: #FCFCFD
 	right: 0
-	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15)
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)
 	width: 360px
-	padding: 30px
+	padding: 25px
+	border-radius: 8px
+
+	&::before
+		content: ''
+		position: absolute
+		left: 70%
+		top: -15px
+		margin-left: -2px
+		border-bottom: 15px solid #fff
+		border-left: 15px solid transparent
+		border-right: 15px solid transparent
+		border-top: 15px solid transparent
 
 	a, p, span
 		color: $text !important
 		line-height: 1.2
 
+	p
+		margin-bottom: 5px
+
 	img
-		width: 80px
-		height: 80px
+		width: 60px
+		height: 60px
 		float: left
 		border-radius: 3px
 
+
+
+
 .woocommerce-mini-cart-item
 	position: relative
-	min-height: 80px
-	margin-bottom: 30px
+	min-height: 60px
+	margin-bottom: 20px
 	padding-right: 15px
+
 
 .woocommerce-mini-cart__total
 	display: flex
 	justify-content: space-between
 	align-items: center
+	margin-bottom: 15px !important
+
+	b
+		font-size: 20px
+
+.woocommerce-mini-cart-item__p
+	display: flex
+	flex-direction: column
+
+.woocommerce-mini-cart__buttons
+	display: flex
+	justify-content: space-between
+
+	a
+		color: #fff !important
+
+	.button
+		position: relative
+		display: inline-block
+		height: 45px
+		border: 1px solid transparent
+		outline: none
+		padding: 0 10px
+		border-radius: 50px
+		background: $btn
+		text-align: center
+		font-size: 14px !important
+		color: #fff !important
+		line-height: 45px !important
+		letter-spacing: .2px
+		font-weight: 700
+		transition: all .6s
+
+		&:hover,
+		&:focus
+			outline: none
+			border: 1px solid $btn
+			text-decoration: none
+			cursor: pointer
+			background: transparent
+			box-shadow: 0 5px 10px rgba($text, .4)
+			color: $btn !important
+
 
 .remove_from_cart_button
 	position: absolute
 	right: 0
 	top: 0
-	font-size: 25px !important
+	font-size: 26px !important
+	line-height: 24px !important
+	font-weight: 700
+	width: 19px
+	height: 20px
+	border-radius: 50%
+	text-align: center
+	transition: all .3s
+
+	&:hover,
+	&:focus
+		color: #fff !important
+		background: $btn
 
 .float--left
 	float: left
@@ -816,6 +999,82 @@ p.no-comments
 .screen-reader-text
 	display: none
 
+
+.added_to_cart
+	position: absolute !important
+	bottom: 5px !important
+	left: 50% !important
+	transform: translate(-50%, 0) !important
+	font-size: 16px !important
+	color: $btn !important
+	white-space: nowrap !important
+
+	&:hover,
+	&:focus
+		text-decoration: underline !important
+
+//-----------------------form plus minus--------------------------
+
+input 
+	outline: none
+ 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button 
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	margin: 0
+
+.buttons-add-minus
+
+	.qty
+		background-color: transparent
+		width: 40px
+		border: none
+		color: #fff
+		text-align: center
+		font-size: 20px
+
+	.minus,
+	.plus
+		border: none
+		height: 30px
+		width: 30px
+		border-radius: 50%
+		color: #fff
+		padding: 0
+		cursor: pointer
+
+	.minus
+		background: $btn
+		line-height: 30px
+		font-size: 36px
+
+	.plus
+		background: #42b819
+		line-height: 32px
+		font-size: 27px
+
+.gallery__slider_order,
+.addition__order
+	.cart
+		display: flex
+		justify-content: space-between
+
+	.btn
+		padding: 0 20px
+
+	p
+		margin-bottom: 5px !important
+		text-align: right
+
+.addition__order
+	.qty
+		color: $text
+
+.gallery__slider_order
+	.qty
+		color: #fff
 
 
 @import "page"

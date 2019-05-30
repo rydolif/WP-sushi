@@ -37,13 +37,13 @@ get_header( 'shop' ); ?>
 					do_action( 'woocommerce_before_main_content' );
 				?>
 
-				
+<!-- 				
 					<?php while ( have_posts() ) : the_post(); ?>
 
 						<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
 					<?php endwhile; // end of the loop. ?>
-
+ -->
 			</div>
 		</section>
 
@@ -53,8 +53,65 @@ get_header( 'shop' ); ?>
 				
 				<h3>Вот бы <span>добавки...</span></h3>
 
-				<?php echo do_shortcode( '[product_category category="wok"]' ); ?>
-				
+
+				<div class="addition__list addition__list_drink swiper-container">
+					<div class="swiper-wrapper">
+
+						<?php 	
+							$args = array(
+								'posts_per_page' => -1,
+								'product_cat' => 'napitki',
+								'post_type' => 'product',
+								'orderby' => 'title',
+							);
+							$the_query = new WP_Query( $args );
+							// The Loop
+							while ( $the_query->have_posts() ) {
+								$the_query->the_post();
+								
+								?>
+
+									<div class="addition__item swiper-slide">
+										
+										<?php if ( has_post_thumbnail() ) {
+											the_post_thumbnail();
+										} else { ?>
+											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+										<?php } ?>
+
+										<h2><?php the_title(); ?></h2>
+
+										<div class="addition__order">
+
+											<?php if ( $price_html = $product->get_price_html() ) : ?>
+												<span class="price"><?php echo $price_html; ?></span>
+											<?php endif; ?>
+
+											<?php
+
+											/**
+											 * Hook: woocommerce_after_shop_loop_item.
+											 *
+											 * @hooked woocommerce_template_loop_product_link_close - 5
+											 * @hooked woocommerce_template_loop_add_to_cart - 10
+											 */
+											do_action( 'woocommerce_after_shop_loop_item' );
+
+											?>
+
+										</div>
+
+
+									</div>
+
+								<?php
+							}
+							wp_reset_postdata();
+						?>
+
+
+					</div>
+				</div>				
 			</div>
 		</section>
 
