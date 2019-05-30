@@ -208,7 +208,7 @@ if ( class_exists( 'WooCommerce' ) ) {
   function wpb_widgets_init() {
    
    register_sidebar( array(
-   'name'          => 'Произвольная область для виджетов в хедере',
+   'name'          => 'Корзина',
    'id'            => 'custom-header-widget',
    'before_widget' => '<div class="chw-widget">',
    'after_widget'  => '</div>',

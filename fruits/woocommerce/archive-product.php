@@ -35,15 +35,7 @@ do_action( 'woocommerce_before_main_content' );
 
 	<?php woocommerce_breadcrumb(); ?>
 
-		<?php
-		 
-	if ( is_active_sidebar( 'custom-header-widget' ) ) : ?>
-	    <div id="header-widget-area" class="chw-widget-area widget-area" role="complementary">
-	 <?php dynamic_sidebar( 'custom-header-widget' ); ?>
-	    </div>
-	 
-	<?php endif; ?>
-	
+
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<h3><?php woocommerce_page_title(); ?></h3>
 	<?php endif; ?>
