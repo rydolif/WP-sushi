@@ -50,7 +50,6 @@
 							) );
 						?> 
 
-
 						<p class="header__links_green mobile"><b>Оформить заказ:</b></p>
 
 						<a href="tel:<?php the_field('phone', 'option'); ?>" class="header__links_call mobile"><?php the_field('phone', 'option'); ?></a>
@@ -68,9 +67,11 @@
 						</div>
 					</nav>
 
-					<a href="#" class="header__basket mobile">
+					<a href="<?php echo get_home_url(); ?>/cart/" class="header__basket mobile">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header-basket.png" alt="">
-						<span>10</span>
+						<span>
+							<?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ); ?>
+						</span>
 					</a>
 
 					<button class="btn btn--cart header__top_btn">Корзина</button>
@@ -104,7 +105,6 @@
 			</div>
 
 			<div class="cart-punkt"><?php cart_link(); ?><?php the_widget( 'WC_Widget_Cart', 'title=' ); ?></div>
-
 
 		</div>
 	</nav>

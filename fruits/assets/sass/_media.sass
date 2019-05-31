@@ -1,7 +1,10 @@
 
 @media only screen and (max-width : 1200px)
-
-	.header
+	
+	.btn--cart
+		padding-left: 40px
+		padding-right: 20px
+		background: #42b819 url(../img/cart.png) no-repeat 10px center
 
 	.nav li
 		margin-right: 23px
@@ -86,6 +89,22 @@
 
 
 @media only screen and (max-width : 992px)
+	.page-cart
+		padding-top: 90px
+
+	.page
+		padding: 40px 0
+
+		h1
+			font-size: 32px
+
+	.addition__order .cart
+		flex-wrap: wrap
+		justify-content: space-around
+
+	.addition__order p
+		text-align: center
+
 	.hamburger
 		display: block
 
@@ -292,7 +311,7 @@
 	.goods-block
 		&__image
 			img
-				width: 115%
+				width: 100%
 
 		&__info
 			padding: 20px 0 20px 55px
@@ -324,6 +343,26 @@
 
 
 @media only screen and (max-width : 767px)
+	.page-cart .wac-quantity
+		max-width: 150px
+		margin: 0 auto
+
+	.page-cart .product-remove
+		td
+			position: relative
+
+		a
+			position: absolute
+			top: 15px
+
+
+	table.shop_table_responsive tr td:before
+		display: none
+
+	.page-cart .product-thumbnail img
+		width: 100%
+
+
 	.menu-item img._before,
 	.rtl .menu-item img._after
 		display: block
@@ -360,6 +399,9 @@
 			padding-bottom: 60px
 
 	.nav
+
+		&__list
+			width: 100%
 
 		&__container
 			padding-top: 10px
@@ -562,6 +604,15 @@
 
 
 @media only screen and (max-width : 480px)
+	.page
+		padding: 30px 0
+
+		h1
+			font-size: 26px
+
+		h2
+			font-size: 22px
+
 	.header__links
 		width: 100%
 		
