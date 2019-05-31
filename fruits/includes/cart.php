@@ -4,7 +4,6 @@
 	 function cart_link() {
 	 ?>
 	<a class="cart-contents btn btn--cart cart-wrap" href="<?php echo get_home_url(); ?>/cart/" title="<?php _e( 'Перейти в корзину' ); ?>">
-		Корзина
 		<?php echo sprintf (_n( '%d шт.', '%d шт.', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> | <?php echo WC()->cart->get_cart_total(); ?>
 		</a> 
 	 <?php
