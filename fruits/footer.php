@@ -79,6 +79,7 @@
 
           }
  	</script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4&callback=initMap"></script>
 
 	<?php wp_footer(); ?>
 

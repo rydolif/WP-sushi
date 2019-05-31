@@ -1,6 +1,39 @@
 @import "libs"
 @import "base"
 
+
+.page
+	padding: 70px 0
+
+	a
+		position: relative
+		z-index: 1
+		color: $text
+		font-weight: 600
+		transition: all .6s
+
+		&:hover,
+		&:focus
+
+
+		&::before
+			content: ''
+			width: 0
+			transform: scale(0)
+			transition: all .3s
+			position: absolute
+			bottom: 0
+			width: 100%
+			height: 1px
+			background-color: $accent
+
+		&:hover,
+		&:focus
+			color: $accent
+			text-decoration: none
+			&::before
+				transform: scale(1)
+
 .mobile
 	display: none !important
 
@@ -299,16 +332,6 @@
 			margin-bottom: 20px
 			line-height: 1.1
 
-	// &__order
-	// 	display: flex
-	// 	align-items: center
-	// 	justify-content: space-between
-	// 	flex-wrap: wrap
-	// 	font-size: 22px
-	// 	font-weight: 700
-
-		// a:first-child
-		// 	display: none
 
 	.btn
 		margin-bottom: 5px
@@ -422,7 +445,7 @@
 .contacts
 	position: relative
 	padding: 80px 0 65px
-
+	box-shadow: 0 0 20px 0 rgba(0,0,0, .3)
 
 	&__place,
 	&__phone
@@ -830,7 +853,7 @@ p.no-comments
 		&:focus
 			text-decoration: underline
 
-//------распродажа----------
+//----------------------------------распродажа--------------------------
 .onsale
 	position: absolute
 	right: 20px
@@ -847,7 +870,7 @@ p.no-comments
 	a
 		color: #fff
 
-
+//--------------------------------mini cart--------------------------
 .cart-punkt
 	position: relative
 
@@ -859,6 +882,11 @@ p.no-comments
 	right: 0
 	padding-top: 15px
 	transition: all .6s
+
+	ul
+		max-height: 300px
+		overflow: auto
+
 
 .widget_shopping_cart-open
 	opacity: 1
@@ -1071,8 +1099,6 @@ input[type=number]::-webkit-outer-spin-button
 	.plus
 		display: none
 
-	.shop_table
-		width: 100%
 
 	.qty
 		background-color: transparent
@@ -1123,17 +1149,10 @@ input[type=number]::-webkit-outer-spin-button
 			width: 160px
 			height: auto
 
-	td, th
-		padding: 10px
+	.shop_table
 
-
-	thead
-		tr
-			background: #f1f1f4
-
-	tr
-		&:nth-child(even)
-			background: #f1f1f4
+		td, th
+			padding: 10px
 
 	.product-name
 		
@@ -1279,7 +1298,8 @@ input[type=number]::-webkit-outer-spin-button
 			transition: all .6s
 
 			&:hover,
-			&:focus
+			&:focus,
+			&:active
 				outline: none
 				border: 1px solid $btn
 				text-decoration: none
@@ -1295,17 +1315,20 @@ input[type=number]::-webkit-outer-spin-button
 		.chosen
 			background: $accent
 			border-radius: 50px
-
-			&:hover,
-			&:focus
-				background-color: transparent
+			transition: all .6s
+			
 			a
 				color: #fff
 
-				&:hover,
-				&:focus
-					background-color: transparent
+			&:hover,
+			&:focus,
+			&:active
+				background-color: transparent
+
+				a
 					color: $accent
+
+					
 
 	.yit-wcan-select-open
 		position: relative
@@ -1325,7 +1348,8 @@ input[type=number]::-webkit-outer-spin-button
 		transition: all .6s
 
 		&:hover,
-		&:focus
+		&:focus,
+		&:active
 			outline: none
 			border: 1px solid $btn
 			text-decoration: none
@@ -1338,15 +1362,12 @@ input[type=number]::-webkit-outer-spin-button
 		&:before
 			display: none
 
-
-
-
 .widget-area
 	display: flex
 	justify-content: space-between
 	flex-wrap: wrap
 	z-index: 100
-	margin-bottom: 30px
+	margin-bottom: 15px
 
 .yit-wcan-select-open
 	margin-top: 0
@@ -1361,6 +1382,95 @@ input[type=number]::-webkit-outer-spin-button
 		border-bottom: 1px solid #cecece
 		border-top: 1px solid #cecece
 
+
+//-------------------------------checkout------------------------------------
+.checkout
+	input
+		height: 45px
+		border-radius: 50px
+		border: 1px solid $btn
+		padding: 0 20px
+		color: $text
+
+	p
+		margin-bottom: 15px
+
+
+.woocommerce-checkout-payment
+	.place-order
+		display: flex
+		flex-direction: column
+		align-items: center
+
+		.button
+			position: relative
+			display: inline-block
+			height: 50px
+			min-width: 50%
+			border: 1px solid $accent
+			outline: none
+			padding: 0 30px
+			border-radius: 50px
+			background: #fff
+			text-align: center
+			font-size: 18px
+			color: $accent
+			line-height: 50px
+			letter-spacing: .2px
+			font-weight: 700
+			transition: all .6s
+
+			&:hover,
+			&:focus
+				outline: none
+				text-decoration: none
+				cursor: pointer
+				background: $accent
+				box-shadow: 0 5px 10px rgba($text, .4)
+				border: 1px solid transparent
+				color: #fff
+
+
+.shop_table
+	width: 100%
+	min-width: 60%
+	margin: 0 auto 20px
+
+	tfoot
+		tr
+			background: #f1f1f4
+
+	td, th
+		padding: 5px
+
+	thead
+		tr
+			background: #f1f1f4
+
+	tr
+		&:nth-child(even)
+			background: #f1f1f4
+
+
+.btn--thanks
+	min-width: 50%
+	background: transparent
+	color: $btn !important
+	border: 1px solid $btn
+
+	&::before
+		display: none
+
+	&:hover,
+	&:focus
+		color: #fff !important
+		background: $btn
+		border: 1px solid $btn
+
+
+.btn__wrap
+	display: flex
+	justify-content: center
 
 @import "page"
 @import "media" // Always at the end
