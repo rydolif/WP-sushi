@@ -66,7 +66,7 @@ get_header();
 
 						<?php 	
 							$args = array(
-								'posts_per_page' => -1,
+								'posts_per_page' => 12,
 								'product_cat' => 'roly',
 								'post_type' => 'product',
 								'orderby' => 'title',
@@ -137,7 +137,7 @@ get_header();
 
 						<?php 	
 							$args = array(
-								'posts_per_page' => -1,
+								'posts_per_page' => 12,
 								'product_cat' => 'sushi',
 								'post_type' => 'product',
 								'orderby' => 'title',
@@ -209,7 +209,7 @@ get_header();
 
 						<?php 	
 							$args = array(
-								'posts_per_page' => -1,
+								'posts_per_page' => 12,
 								'product_cat' => 'sety',
 								'post_type' => 'product',
 								'orderby' => 'title',
@@ -280,7 +280,7 @@ get_header();
 
 						<?php 	
 							$args = array(
-								'posts_per_page' => -1,
+								'posts_per_page' => 12,
 								'product_cat' => 'wok',
 								'post_type' => 'product',
 								'orderby' => 'title',
@@ -349,7 +349,7 @@ get_header();
 
 						<?php 	
 							$args = array(
-								'posts_per_page' => -1,
+								'posts_per_page' => 12,
 								'product_cat' => 'topingi',
 								'post_type' => 'product',
 								'orderby' => 'title',
@@ -409,7 +409,7 @@ get_header();
 
 						<?php 	
 							$args = array(
-								'posts_per_page' => -1,
+								'posts_per_page' => 12,
 								'product_cat' => 'napitki',
 								'post_type' => 'product',
 								'orderby' => 'title',

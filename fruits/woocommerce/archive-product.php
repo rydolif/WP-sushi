@@ -40,6 +40,16 @@ do_action( 'woocommerce_before_main_content' );
 		<h3><?php woocommerce_page_title(); ?></h3>
 	<?php endif; ?>
 
+
+	<?php 
+			/**
+		 * Hook: woocommerce_sidebar.
+		 *
+		 * @hooked woocommerce_get_sidebar - 10
+		 */
+		do_action( 'woocommerce_sidebar' );
+	?>
+
 	<?php
 	/**
 	 * Hook: woocommerce_archive_description.
@@ -104,18 +114,10 @@ if ( woocommerce_product_loop() ) {
  */
 do_action( 'woocommerce_after_main_content' );
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
-
 
 get_footer( 'shop' );
 
 ?>
-
 
 	</div>
 </section>
