@@ -4,6 +4,7 @@
 
 .page
 	padding: 70px 0
+	min-height: 60vh
 
 	a
 		position: relative
@@ -11,10 +12,6 @@
 		color: $text
 		font-weight: 600
 		transition: all .6s
-
-		&:hover,
-		&:focus
-
 
 		&::before
 			content: ''
@@ -30,9 +27,6 @@
 		&:hover,
 		&:focus
 			color: $accent
-			text-decoration: none
-			&::before
-				transform: scale(1)
 
 .mobile
 	display: none !important
@@ -368,6 +362,11 @@
 	&__slider
 		margin-bottom: 50px
 
+		a
+			h4
+				color: #fff
+				line-height: 1.1
+
 		&_item
 			background: #424657
 			color: #fff
@@ -495,6 +494,10 @@
 	left: 50%
 	top: 0
 	right: 0
+
+	iframe
+		width: 100%
+		height: 100%
 
 
 .footer
@@ -629,10 +632,6 @@
 		p:nth-last-of-type(1)
 			margin-bottom: 30px
 
-		// span
-		// 	color: $accent
-		// 	display: block
-		// 	margin-bottom: 20px
 
 	&__order
 		display: flex
@@ -640,7 +639,6 @@
 
 	.price
 		display: flex
-		align-items: flex-end
 		color: #fff
 		margin-bottom: 0
 		margin-left: 30px
@@ -863,9 +861,11 @@ p.no-comments
 	font-weight: 600
 
 .addition__order--hidden
-	a
-		&:first-child
-			display: none
+	font-weight: 700
+
+	// a
+	// 	&:first-child
+	// 		display: none
 
 .rolls__item_info
 	a
@@ -1081,7 +1081,6 @@ input[type=number]::-webkit-outer-spin-button
 
 	p
 		margin-bottom: 5px !important
-		text-align: right
 
 .addition__order
 	.qty
@@ -1094,8 +1093,6 @@ input[type=number]::-webkit-outer-spin-button
 
 //-----------------------------------cart-------------------------------
 .page-cart
-	padding: 70px 0 40px
-
 	.minus,
 	.plus
 		display: none
@@ -1139,10 +1136,16 @@ input[type=number]::-webkit-outer-spin-button
 			font-size: 26px
 			background: #42b819
 
+			&::before
+				display: none
+
 		.wac-btn-sub
 			background: $btn
 			line-height: 34px
 			font-size: 26px
+
+			&::before
+				display: none
 
 
 	.product-thumbnail
@@ -1182,31 +1185,55 @@ input[type=number]::-webkit-outer-spin-button
 				color: #fff
 				background: $btn
 
-	.coupon
-		display: flex
-		justify-content: space-between
+	.actions
+		.button
+			display: none
+	
+		.coupon
+			display: flex
+			justify-content: space-between
 
-		label
-			font-size: 20px
-			font-weight: 700
+			label
+				font-size: 20px
+				font-weight: 700
 
-		input
-			margin-right: 20px
-			height: 45px
-			border-radius: 50px
-			padding: 0 15px
-			color: $text
-			border: 1px solid #42b819
-
-		.btn
-			white-space: nowrap
-			border: 1px solid #42b819
-			background: #42b819
-
-			&:hover,
-			&:focus
-				color: #fff
+			input
+				margin-right: 20px
+				height: 45px
+				border-radius: 50px
+				padding: 0 15px
+				color: $text
 				border: 1px solid #42b819
+
+			button
+				position: relative
+				display: inline-block
+				height: 45px
+				border: 1px solid $accent
+				outline: none
+				padding: 0 30px
+				border-radius: 50px
+				background-color: transparent
+				text-align: center
+				font-size: 16px
+				color: $accent
+				line-height: 45px
+				letter-spacing: .2px
+				font-weight: 700
+				transition: all .6s
+				white-space: nowrap
+				border: 1px solid #42b819
+				
+				&:hover,
+				&:focus
+					outline: none
+					border: 1px solid $accent
+					text-decoration: none
+					cursor: pointer
+					background: transparent
+					box-shadow: 0 3px 5px rgba($text, .4)
+					color: #fff
+					background: #42b819
 
 	.wc-proceed-to-checkout
 		text-align: center
@@ -1239,6 +1266,9 @@ input[type=number]::-webkit-outer-spin-button
 				background: transparent
 				box-shadow: 0 5px 10px rgba($text, .4)
 				color: $btn
+
+			&::before
+				display: none
 
 .woocommerce-pagination
 	ul
@@ -1473,6 +1503,62 @@ input[type=number]::-webkit-outer-spin-button
 .btn__wrap
 	display: flex
 	justify-content: center
+
+
+
+//--------------------------------single--------------------
+.goods-block__info
+
+	.green
+		color: $accent
+
+	.cart
+		display: flex
+	
+		button
+			margin-left: 20px
+			position: relative
+			display: inline-block
+			height: 45px
+			border: 1px solid transparent
+			outline: none
+			padding: 0 30px
+			border-radius: 50px
+			background: $btn
+			text-align: center
+			font-size: 16px
+			color: #fff
+			line-height: 45px
+			letter-spacing: .2px
+			font-weight: 700
+			transition: all .6s
+
+			&:hover,
+			&:focus
+				outline: none
+				border: 1px solid $btn
+				text-decoration: none
+				cursor: pointer
+				background: transparent
+				box-shadow: 0 5px 10px rgba($text, .4)
+				color: #fff
+
+
+.page-header
+	text-align: center
+
+	h1
+		line-height: 1.1
+		margin-bottom: 50px
+	
+	.btn
+		color: #fff
+		margin-bottom: 20px
+
+		&:hover,
+		&:focus
+			color: $btn
+
 
 @import "page"
 @import "media" // Always at the end

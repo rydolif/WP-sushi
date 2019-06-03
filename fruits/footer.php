@@ -50,36 +50,6 @@
 	</footer>
 
 
-	<script>
-      function initMap() {
-        var uluru = {lat: 34.9307386, lng: 33.6249393};
-        var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 16,
-			center: uluru,
-        });
-
-
-          var marker = new google.maps.Marker({
-            position: {lat: 34.9307386, lng: 33.6249393},
-            map: map,
-            // icon: '<?php echo get_template_directory_uri(); ?>/assets/img/mark.png'
-          });
-
-         var contentString = '<div id="content" class="map__content">'+
-          '<div id="siteNotice">'+
-          '</div>'+
-          '<h5 id="firstHeading" class="firstHeading map__title">Новомосковская улица, 25Б</span></h5>'+
-          '</div>';
-
-          var infowindow = new google.maps.InfoWindow({
-                content: contentString
-              });
-
-              infowindow.open(map, marker);
-
-          }
- 	</script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4&callback=initMap"></script>
 
 	<?php wp_footer(); ?>
 

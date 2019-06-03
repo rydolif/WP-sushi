@@ -488,7 +488,9 @@ get_header();
 		</section>
 
 		<section class="contacts">
-			<div id="map" class="map"></div>
+			<div id="map" class="map">
+				<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa7267d7ab0d7f615c80d6cb1fc0e5339e2bb3bc70705d5d35a5d54340cf5dd68&amp;source=constructor" frameborder="0"></iframe>
+			</div>
 
 			<div class="container contacts__container">
 				<h3>Контакты</h3>

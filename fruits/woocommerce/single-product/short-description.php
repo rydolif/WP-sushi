@@ -29,8 +29,14 @@ if ( ! $short_description ) {
 
 ?>
 
+<?php 
+	global $product;
+	echo '<p><b>Вес</b> <br>';
+	echo '<span class="green">' . $product->get_attribute('vse') . '</span></p>';
+?>
 
 <div class="woocommerce-product-details__short-description">
 	<p><b>Cостав:</b></p>
 	<?php echo $short_description; // WPCS: XSS ok. ?>
 </div>
+
