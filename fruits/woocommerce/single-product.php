@@ -37,12 +37,12 @@ get_header( 'shop' ); ?>
 					do_action( 'woocommerce_before_main_content' );
 				?>
 
-				
-					<?php while ( have_posts() ) : the_post(); ?>
+			
+				<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php wc_get_template_part( 'content', 'single-product' ); ?>
+					<?php wc_get_template_part( 'content', 'single-product' ); ?>
 
-					<?php endwhile; // end of the loop. ?>
+				<?php endwhile; // end of the loop. ?>
 
 			</div>
 		</section>
@@ -52,7 +52,6 @@ get_header( 'shop' ); ?>
 			<div class="container">
 				
 				<h3>Вот бы <span>добавки...</span></h3>
-
 
 				<div class="addition__list addition__list_drink swiper-container">
 					<div class="swiper-wrapper">
@@ -72,14 +71,15 @@ get_header( 'shop' ); ?>
 								?>
 
 									<div class="addition__item swiper-slide">
-										
-										<?php if ( has_post_thumbnail() ) {
-											the_post_thumbnail();
-										} else { ?>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+											<?php } ?>
 
-										<h2><?php the_title(); ?></h2>
+											<h2><?php the_title(); ?></h2>
+										</a>
 
 										<div class="addition__order">
 

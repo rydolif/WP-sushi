@@ -78,18 +78,25 @@ get_header();
 								
 								?>
 
+								
 									<div class="gallery__slider_item swiper-slide">
-										<?php if ( has_post_thumbnail() ) {
-											the_post_thumbnail();
-										} else { ?>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+											<?php } ?>
+										</a>
 										<div class="gallery__slider_info">
-											<h4><?php the_title(); ?></h4>
+
+											<a href="<?php the_permalink(); ?>">
+												<h4><?php the_title(); ?></h4>
+											</a>
+
 											<?php the_content(); ?>
 
 
-											<div class="gallery__slider_order addition__order">
+											<div class="gallery__slider_order">
 
 											<?php if ( $price_html = $product->get_price_html() ) : ?>
 												<p class="price"><b><?php echo $price_html; ?></b></p>
@@ -150,17 +157,23 @@ get_header();
 								?>
 
 									<div class="gallery__slider_item swiper-slide">
-										<?php if ( has_post_thumbnail() ) {
-											the_post_thumbnail();
-										} else { ?>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+											<?php } ?>
+										</a>
 										<div class="gallery__slider_info">
-											<h4><?php the_title(); ?></h4>
+											
+											<a href="<?php the_permalink(); ?>">
+												<h4><?php the_title(); ?></h4>
+											</a>
+
 											<?php the_content(); ?>
 
 
-											<div class="gallery__slider_order addition__order">
+											<div class="gallery__slider_order">
 
 											<?php if ( $price_html = $product->get_price_html() ) : ?>
 												<p class="price"><b><?php echo $price_html; ?></b></p>
@@ -222,17 +235,25 @@ get_header();
 								?>
 
 									<div class="gallery__slider_item swiper-slide">
-										<?php if ( has_post_thumbnail() ) {
-											the_post_thumbnail();
-										} else { ?>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
+
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+											<?php } ?>
+										</a>
+
 										<div class="gallery__slider_info">
-											<h4><?php the_title(); ?></h4>
+											
+											<a href="<?php the_permalink(); ?>">
+												<h4><?php the_title(); ?></h4>
+											</a>
+
 											<?php the_content(); ?>
 
 
-											<div class="gallery__slider_order addition__order">
+											<div class="gallery__slider_order">
 
 											<?php if ( $price_html = $product->get_price_html() ) : ?>
 												<p class="price"><b><?php echo $price_html; ?></b></p>
@@ -293,17 +314,25 @@ get_header();
 								?>
 
 									<div class="gallery__slider_item swiper-slide">
-										<?php if ( has_post_thumbnail() ) {
-											the_post_thumbnail();
-										} else { ?>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
+
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+											<?php } ?>
+										</a>
+
 										<div class="gallery__slider_info">
-											<h4><?php the_title(); ?></h4>
+											
+											<a href="<?php the_permalink(); ?>">
+
+												<h4><?php the_title(); ?></h4>
+											</a>
 											<?php the_content(); ?>
 
 
-											<div class="gallery__slider_order addition__order">
+											<div class="gallery__slider_order">
 
 											<?php if ( $price_html = $product->get_price_html() ) : ?>
 												<p class="price"><b><?php echo $price_html; ?></b></p>
@@ -362,14 +391,15 @@ get_header();
 								?>
 
 									<div class="addition__item swiper-slide">
-										
-										<?php if ( has_post_thumbnail() ) {
-											the_post_thumbnail();
-										} else { ?>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+											<?php } ?>
 
-										<h2><?php the_title(); ?></h2>
+											<h2><?php the_title(); ?></h2>
+										</a>
 
 										<div class="addition__order">
 
@@ -422,14 +452,15 @@ get_header();
 								?>
 
 									<div class="addition__item swiper-slide">
-										
-										<?php if ( has_post_thumbnail() ) {
-											the_post_thumbnail();
-										} else { ?>
-											<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
-										<?php } ?>
 
-										<h2><?php the_title(); ?></h2>
+										<a href="<?php the_permalink(); ?>">
+											<?php if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											} else { ?>
+												<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+											<?php } ?>
+											<h2><?php the_title(); ?></h2>
+										</a>
 
 										<div class="addition__order">
 
@@ -489,7 +520,7 @@ get_header();
 
 		<section class="contacts">
 			<div id="map" class="map">
-				<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa7267d7ab0d7f615c80d6cb1fc0e5339e2bb3bc70705d5d35a5d54340cf5dd68&amp;source=constructor" frameborder="0"></iframe>
+				<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae6352e21f6c2838152a8c879455d6a18d973f9c7d409a1c9b131ef2370a75aee&amp;source=constructor"  frameborder="0"></iframe>
 			</div>
 
 			<div class="container contacts__container">

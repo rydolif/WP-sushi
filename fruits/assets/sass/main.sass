@@ -746,6 +746,7 @@
 		flex-wrap: wrap !important
 
 	&__item
+		position: relative
 		background: #424657
 		width: 23.5%
 		color: #fff
@@ -950,6 +951,9 @@ p.no-comments
 	display: flex
 	flex-direction: column
 
+	.quantity
+		display: inline-block
+
 .woocommerce-mini-cart__buttons
 	display: flex
 	justify-content: space-between
@@ -1045,6 +1049,7 @@ input[type=number]::-webkit-outer-spin-button
 	.qty
 		background-color: transparent
 		width: 40px
+		h
 		border: none
 		color: #fff
 		text-align: center
@@ -1075,6 +1080,7 @@ input[type=number]::-webkit-outer-spin-button
 	.cart
 		display: flex
 		justify-content: space-between
+		align-items: center
 
 	.btn
 		padding: 0 20px
@@ -1092,14 +1098,85 @@ input[type=number]::-webkit-outer-spin-button
 
 
 //-----------------------------------cart-------------------------------
+
+.quantity
+	display: flex
+
+	.qty
+		background-color: transparent !important
+		border: none
+		color: #fff
+		text-align: center
+		font-size: 20px
+		height: 38px
+		width: 38px
+
+	.wbu-qty-button
+		display: block
+		background-color: transparent
+		width: 38px
+		height: 38px
+		border: none
+		color: #fff
+		text-align: center
+		font-size: 26px
+		line-height: 40px
+		padding: 0
+		border-radius: 50%
+
+	.wbu-btn-sub
+		background: $btn
+
+	.wbu-btn-inc
+		background: #42b819
+
+.addition__order
+	.quantity .qty
+		color: $text
+
+.goods-block__info
+	.quantity .qty
+		border: 1px solid #fff
+
+.button
+	position: relative
+	display: inline-block
+	height: 45px
+	border: 1px solid transparent
+	outline: none
+	padding: 0 20px
+	border-radius: 50px
+	background: $btn
+	text-align: center
+	font-size: 16px
+	color: #fff
+	line-height: 45px
+	letter-spacing: .2px
+	font-weight: 700
+	transition: all .6s
+	white-space: nowrap
+
+	&:hover,
+	&:focus
+		outline: none
+		border: 1px solid $btn
+		text-decoration: none
+		cursor: pointer
+		background: transparent
+		box-shadow: 0 5px 10px rgba($text, .4)
+		color: #fff
+
+
+
 .page-cart
+
 	.minus,
 	.plus
 		display: none
 
 
 	.qty
-		background-color: transparent
+		background-color: transparent !important
 		width: 40px
 		border: none
 		color: $text
@@ -1186,8 +1263,8 @@ input[type=number]::-webkit-outer-spin-button
 				background: $btn
 
 	.actions
-		.button
-			display: none
+		// .button
+		// 	display: none
 	
 		.coupon
 			display: flex
@@ -1508,6 +1585,7 @@ input[type=number]::-webkit-outer-spin-button
 
 //--------------------------------single--------------------
 .goods-block__info
+	position: relative
 
 	.green
 		color: $accent
@@ -1554,10 +1632,16 @@ input[type=number]::-webkit-outer-spin-button
 	.btn
 		color: #fff
 		margin-bottom: 20px
+		
 
 		&:hover,
 		&:focus
 			color: $btn
+
+
+.price--single
+	margin-left: 0 !important
+	margin-bottom: 10px !important
 
 
 @import "page"

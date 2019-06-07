@@ -18,6 +18,7 @@ body
 	overflow-x: hidden
 	position: relative
 	min-width: 320px
+	min-height: 100vh
 	font-family: $fonts
 	font-size: 16px
 	color: $text
@@ -88,16 +89,40 @@ input, textarea
 	&::placeholder
 		color: #000
 
+
 input
 	height: 50px
 	line-height: 50px
-
+	color: #424657
 	&::placeholder
 		line-height: 50px
 
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+	-webkit-appearance: none
+	margin: 0
+
+input[type="number"]
+  -moz-appearance: textfield
+input[type="number"]:hover,
+input[type="number"]:focus
+	-moz-appearance: number-input
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button
+	-webkit-appearance: none
+	margin: 0
+
+
 textarea
+	height: 150px
+	border-color: #ff4763
+	padding: 10px
+	color: #424657
 	&::placeholder
 		line-height: 1.4
+		color: #424657
 
 
 b, strong

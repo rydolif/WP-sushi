@@ -40,3 +40,5 @@ if ( ! $short_description ) {
 	<?php echo $short_description; // WPCS: XSS ok. ?>
 </div>
 
+<p class="price price--single"><?php echo $product->get_price_html(); ?></p>
+

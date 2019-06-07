@@ -27,6 +27,7 @@
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/phone.png" alt="alt">
 						<a href="tel:<?php the_field('phone', 'option'); ?>"><?php the_field('phone', 'option'); ?></a>
 						<p>Прием звонков: с <span>11:00 </span>до <span>22:30</span></p>
+						<a href="tel:<?php the_field('mail', 'option'); ?>"><?php the_field('mail', 'option'); ?></a>
 					</div>
 
 					<div class="footer__place">

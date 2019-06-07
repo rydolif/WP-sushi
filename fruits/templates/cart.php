@@ -6,7 +6,7 @@
 get_header();
 
 ?>
-<main class="page-cart">
+<main class="page-cart rolls none-js">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-8">
