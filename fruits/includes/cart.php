@@ -4,7 +4,7 @@
 	 function cart_link() {
 	 ?>
 	<a class="cart-contents btn btn--cart cart-wrap" href="<?php echo get_home_url(); ?>/cart/" title="<?php _e( 'Перейти в корзину' ); ?>">
-		<?php echo sprintf (_n( '%d шт.', '%d шт.', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> | <?php echo WC()->cart->get_cart_total(); ?>
+		<?php echo sprintf (_n( '%d <span>шт.</span>', '%d <span>шт.</span>', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> | <?php echo WC()->cart->get_cart_total(); ?>
 		</a> 
 	 <?php
 	 }
@@ -17,7 +17,7 @@
 	 ob_start();
 	 ?>
 	 <a class="cart-contents btn btn--cart cart-wrap" href="<?php echo get_home_url(); ?>/cart/" title="<?php _e( 'Перейти в корзину' ); ?>">
-	 	<?php echo sprintf (_n( '%d шт.', '%d шт.', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?> | <?php echo WC()->cart->get_cart_total(); ?></a> 
+	 	<span class="active"><?php echo sprintf (_n( '%d <span>шт.</span>', '%d <span>шт.</span>', WC()->cart->cart_contents_count ), WC()->cart->cart_contents_count ); ?></span> <span class="none">|</span> <?php echo WC()->cart->get_cart_total(); ?></a> 
 	 <?php
 	 $fragments['a.cart-contents'] = ob_get_clean();
 	 return $fragments;

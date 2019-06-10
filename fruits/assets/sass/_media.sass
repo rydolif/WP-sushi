@@ -89,6 +89,45 @@
 
 
 @media only screen and (max-width : 992px)
+	.header
+		.cart-contents
+			display: block
+			background-color: transparent
+			border: none
+
+			.amount
+				display: none
+
+		.btn--cart
+			background-image: url(../img/header-basket.png)
+			background-position: center
+			padding: 0
+			width: 30px
+			height: 30px
+
+		.none
+			display: none
+
+		.active
+			position: absolute
+			top: -6px
+			right: -10px
+			display: block
+			background: #42B819
+			border: 2px solid #F1F1F4
+			border-radius: 50%
+			width: 20px
+			height: 20px
+			font-size: 10px
+			color: #fff
+			line-height: 20px
+			text-align: center
+
+			span
+				display: none
+		
+
+
 	.wbu-quantity
 		width: auto
 
@@ -240,6 +279,9 @@
 			box-shadow: none
 			padding: 15px
 
+		&__list
+			width: 100%
+
 		.btn
 			display: none
 
@@ -346,6 +388,12 @@
 
 
 @media only screen and (max-width : 767px)
+	.addition__order .cart,
+	.gallery__slider_order .cart
+		flex-wrap: wrap
+		justify-content: center
+
+
 	.quantity
 		margin-bottom: 5px
 
@@ -642,7 +690,7 @@
 
 		&__slider
 			&_info
-				padding: 10px
+				padding: 10px 10px 25px 10px
 
 			p
 				line-height: 1.2
